@@ -13,8 +13,25 @@
 # and
 #   about_triangle_project_2.rb
 #
+def pytagoras a, b, c
+	s, m, b = [a, b, c].sort
+	#puts '*'*70
+    #puts b, m, s
+	#return (b >= Math.sqrt((m**2 + s**2)))
+    return (b >= (m + s)) 
+end	
+
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  
+  raise TriangleError if a <= 0 or b <= 0 or c <= 0
+
+  raise TriangleError if pytagoras(a, b, c)
+
+  return :equilateral if (a == b and b == c)
+
+  return :isosceles  if (a == b) or (a == c) or ( b == c)
+
+  return :scalene
 end
 
 # Error class used in part 2.  No need to change this code.

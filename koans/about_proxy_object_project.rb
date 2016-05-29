@@ -16,7 +16,26 @@ class Proxy
   def initialize(target_object)
     @object = target_object
     # ADD MORE CODE HERE
+    @the_methods = Hash.new(0)
   end
+
+  def messages
+    @the_methods.keys
+  end
+
+  def called? method
+    @the_methods.key?(method)
+  end
+
+  def number_of_times_called method
+    @the_methods[method]
+  end
+
+  def method_missing(method_name, *args, &block)
+    puts "#{method_name} and: #{args}"
+     @the_methods[method_name]+= 1
+    @object.send(method_name, *args, &block)
+  end  
 
   # WRITE CODE HERE
 end
