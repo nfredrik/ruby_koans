@@ -14,11 +14,12 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
      return rand(1..6)
    end
 
-   def roll no
+   def roll number
 
     @values = []
-     no.times do | _ |
-        @values.push _roll  
+     number.time do | _ |
+        puts '-'
+        @values << _roll  
      end
    end
 

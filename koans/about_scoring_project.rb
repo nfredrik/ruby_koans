@@ -76,6 +76,25 @@ def get_quantas dice
     sum = 100 
 end
 
+def score2(dice)
+
+  puts dice
+
+  sum+= check_ones dice.count(1)
+
+  sum+= check_others  2, dice.count(2)
+
+  sum+= check_others  3, dice.count(3)
+  
+  sum+= check_others  4, dice.count(4)
+
+  sum+= check_others  5, dice.count(5)
+
+  sum+= check_others  6, dice.count(6)
+  
+  return sum
+
+end
 
 def score(dice)
 
